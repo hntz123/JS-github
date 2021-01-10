@@ -1,0 +1,482 @@
+{% extends "base/base.html" %}
+{% block block_body_not_nav %}
+
+
+
+
+<div class="container">
+  <div class="form__layout">
+      <div class="form__container">
+          <div class="form__header">
+              <header class="form__header--header">
+                  <h1 class="form__header--h1">
+                      <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            REGISTRATION OF NEW MEMBERS</font>
+                      </font>
+                  </h1>
+
+                  <div style="margin-bottom: 2.5rem;"></div>
+                  <div class="footer__caption">
+                      <p class="footer__caption--label">
+                        After registration is complete, a registration confirmation email will be sent to the email address you entered. If you have received settings, please check here in advance.
+                      </p>
+                  </div>
+                  <a href="">
+                      <h6>Email reception settings</h6>
+                  </a>
+              </header>
+          </div>
+            
+
+          <div class="form__form--layout">
+              <div class="form__form--container" style="display: flex; flex-wrap:wrap">
+                  <form action="" method="POST" id="createproduct" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form__form--content" style="min-width:40rem">
+                          <div class="form__row">
+                              <div class="from__row--field">
+                                  <div class="form__text--field">
+                                      <div class="input__text--wrap">
+                                          <input type="text" name="productForm-name" maxlength="256" required=""
+                                              id="id_productForm-name" class="input__text--wrap--input"
+                                              placeholder="xxx@uniqlo.com">
+                                      </div>
+                                      <div class="form__text--title">
+                                          <div class="form__text--label">
+                                              <label for="id_productForm-name" class="form__text--label--label">
+                                                  <font style="vertical-align: inherit;">
+                                                      <font style="vertical-align: inherit;">Mail address</font>
+                                                  </font>
+                                              </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form__row">
+                              <div class="from__row--field">
+                                  <div class="form__text--field">
+                                      <div class="input__text--wrap">
+                                          <input type="number" name="productForm-price" step="0.01" required=""
+                                              id="id_productForm-price" class="input__text--wrap--input"
+                                              placeholder="xxx@uniqlo.com">
+                                      </div>
+                                      <div class="form__text--title">
+                                          <div class="form__text--label">
+                                              <label for="id_productForm-price" class="form__text--label--label">
+                                                  <font style="vertical-align: inherit;">
+                                                      <font style="vertical-align: inherit;">
+                                                        EMAIL ADDRESS (FOR CONFIRMATION)</font>
+                                                  </font>
+                                              </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="number" name="productForm-price" step="0.01" required=""
+                                                id="id_productForm-price" class="input__text--wrap--input"
+                                                placeholder="Enter your password here">
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-price" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">PASSWORD</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+
+                             <div>
+                              <input type="checkbox"> 
+                              <span class="banner__nav--span label--primary">
+                           Show password
+                            </span>>
+                              </div>
+
+                              <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="number" name="productForm-price" step="0.01" required=""
+                                                id="id_productForm-price" class="input__text--wrap--input"
+                                                placeholder="">
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-price" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Postal code</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <h4>Birthday</h4>
+                              <div class="product__dropdown">
+                                <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
+                                    <div class="product__dropdown--header">
+                                        <label for="id_productForm-category" class="product__dropdown--header--label">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Year</font>
+                                            </font>
+                                        </label>
+                                    </div>
+                                    <div class="product__dropdown--input">
+                                        <select name="productForm-category" required id="id_productForm-category"
+                                            class="product__dropdown--select" data-test="quantity-dropdown"
+                                            style="background-color:#f5f5f5e7;">
+                                            {% for category in categorys %}
+                                            <option value="{{category.id}}" class="uq-uikit-dropdown__hidden-option"
+                                                aria-selected="true">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">{{category.name}}</font>
+                                                </font>
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="product__dropdown--input--inner">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"
+                                                class="uq-uikit-icon uq-uikit-icon--default uq-uikit-dropdown__icon"
+                                                role="presentation">
+                                                <title></title>
+                                                <g fill-rule="evenodd">
+                                                    <polygon points="12 15 18 9 6 9"></polygon>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product__dropdown">
+                              <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
+                                  <div class="product__dropdown--header">
+                                      <label for="id_productForm-category" class="product__dropdown--header--label">
+                                          <font style="vertical-align: inherit;">
+                                              <font style="vertical-align: inherit;">Month</font>
+                                          </font>
+                                      </label>
+                                  </div>
+                                  <div class="product__dropdown--input">
+                                      <select name="productForm-category" required id="id_productForm-category"
+                                          class="product__dropdown--select" data-test="quantity-dropdown"
+                                          style="background-color:#f5f5f5e7;">
+                                          {% for category in categorys %}
+                                          <option value="{{category.id}}" class="uq-uikit-dropdown__hidden-option"
+                                              aria-selected="true">
+                                              <font style="vertical-align: inherit;">
+                                                  <font style="vertical-align: inherit;">{{category.name}}</font>
+                                              </font>
+                                          </option>
+                                          {% endfor %}
+                                      </select>
+                                      <div class="product__dropdown--input--inner">
+                                          <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"
+                                              class="uq-uikit-icon uq-uikit-icon--default uq-uikit-dropdown__icon"
+                                              role="presentation">
+                                              <title></title>
+                                              <g fill-rule="evenodd">
+                                                  <polygon points="12 15 18 9 6 9"></polygon>
+                                              </g>
+                                          </svg>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="product__dropdown">
+                            <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
+                                <div class="product__dropdown--header">
+                                    <label for="id_productForm-category" class="product__dropdown--header--label">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Day</font>
+                                        </font>
+                                    </label>
+                                </div>
+                                <div class="product__dropdown--input">
+                                    <select name="productForm-category" required id="id_productForm-category"
+                                        class="product__dropdown--select" data-test="quantity-dropdown"
+                                        style="background-color:#f5f5f5e7;">
+                                        {% for category in categorys %}
+                                        <option value="{{category.id}}" class="uq-uikit-dropdown__hidden-option"
+                                            aria-selected="true">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">{{category.name}}</font>
+                                            </font>
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="product__dropdown--input--inner">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"
+                                            class="uq-uikit-icon uq-uikit-icon--default uq-uikit-dropdown__icon"
+                                            role="presentation">
+                                            <title></title>
+                                            <g fill-rule="evenodd">
+                                                <polygon points="12 15 18 9 6 9"></polygon>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__dropdown">
+                        <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
+                            <div class="product__dropdown--header">
+                                <label for="id_variantsForm-gender" class="product__dropdown--header--label">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">SEX</font>
+                                    </font>
+                                </label>
+                            </div>
+                    <div class="product__dropdown--input">
+                        <select name="variantsForm-gender" class="product__dropdown--select"
+                            data-test="quantity-dropdown" id="id_variantsForm-gender"
+                            style="background-color:#f5f5f5e7;">
+                            <option value="1" class="uq-uikit-dropdown__hidden-option"
+                                aria-selected="true">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Nam</font>
+                                </font>
+                            </option>
+                            <option value="2" class="uq-uikit-dropdown__hidden-option"
+                                aria-selected="false">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Nữ</font>
+                                </font>
+                            </option>
+                            <option value="4" class="uq-uikit-dropdown__hidden-option"
+                                aria-selected="false">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Khác</font>
+                                </font>
+                            </option>
+                        </select>
+                        <div class="product__dropdown--input--inner">
+                            <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"
+                                class="uq-uikit-icon uq-uikit-icon--default uq-uikit-dropdown__icon"
+                                role="presentation">
+                                <title></title>
+                                <g fill-rule="evenodd">
+                                    <polygon points="12 15 18 9 6 9"></polygon>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h6>If you register your gender, we will propose the recommended products for you</h6>
+            </div>
+            <label for="" class="product__details--legend--primary">
+                <font style="vertical-align:inherit;">
+                    <font style="vertical-align:inherit;">UNIQLO MAIL MAGAZINE </font>
+                </font>
+                <font style="vertical-align:inherit;">
+                    <font style="vertical-align:inherit;"> </font>
+                </font>
+            </label>
+
+            <div>
+                <input type="checkbox" name="" id="">UNIQLO MAIL MAGAZINE 
+            </div>
+
+            <label for="" class="product__details--legend--primary">
+                <font style="vertical-align:inherit;">
+                    <font style="vertical-align:inherit;">GU MAIL MAGAZINE</font>
+                </font>
+                <font style="vertical-align:inherit;">
+                    <font style="vertical-align:inherit;"> </font>
+                </font>
+            </label>
+
+            <div>
+                <input type="checkbox" name="" id="">GU MAIL MAGAZINE
+            </div>
+
+            <div>
+                <h6>You can change the e-mail newsletter distribution settings from the member information page.</h6>
+            </div>
+
+            <div class="form__row">
+                <div class="from__row--field">
+                    <div class="form__text--field">
+                        <div class="input__text--wrap">
+                           
+                        </div>
+                        <div class="form__text--title">
+                            <div class="form__text--label">
+                                <label for="id_productForm-price" class="form__text--label--label">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">TERMS OF SERVICE</font>
+                                    </font>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div>
+                <input type="checkbox" name="" id="">Please proceed to the confirmation screen after agreeing to the terms of use and privacy policy.
+            </div>
+
+            <div>
+                <a href=""> 
+                    <div class="banner__layout container">
+                        <div class="banner__select">
+                            <nav class="banner__nav">
+                                <ol class="banner__nav--group">
+                                    <li class="banner__nav--item">
+                                        <img class="uq-uikit-link-image__image" src="https://asset.uniqlo.com/g/icons/header_uq_en.svg" alt="text_brand_gu">
+                                    </li>
+                                    <li class="banner__nav--item">
+                                        <a href="#" class="banner__nav--link">
+                                            <span class="banner__nav--span label--primary">
+                                                Terms of service
+                                            </span>                                   
+                                    </li>
+                                    <li class="banner__nav--item active">
+                                        <a href="#" class="banner__nav--link">
+                                        <span class="banner__nav--span label--primary">
+                                            privacy policy
+                                        </span>
+                                    </li>
+                                </a>
+                                </ol>
+                            </nav>
+                        </div>
+             </div>
+
+
+
+         <div>
+            <a href=""> 
+                <div class="banner__layout container">
+                    <div class="banner__select">
+                        <nav class="banner__nav">
+                            <ol class="banner__nav--group">
+                                <li class="banner__nav--item">
+                                    <img class="uq-uikit-link-image__image" src="https://asset.uniqlo.com/g/icons/header_gu.svg" alt="text_brand_gu">
+                                </li>
+                                <li class="banner__nav--item">
+                                    <a href="#" class="banner__nav--link">
+                                        <span class="banner__nav--span label--primary">
+                                            Terms of service
+                                        </span>                                   
+                                </li>
+                                <li class="banner__nav--item active">
+                                    <a href="#" class="banner__nav--link">
+                                    <span class="banner__nav--span label--primary">
+                                        privacy policy
+                                    </span>
+                                </li>
+                            </a>
+                            </ol>
+                        </nav>
+                    </div>
+         </div>
+
+                             <div class="button--third" style="margin-top: 30px;">
+                              <button type="submit" class="button--third--button">TO CONFIRMATION SCREEN</button>
+                          </div>
+    </form>
+                 
+    
+    <section class="footer">
+        <div class="footer__layout container">
+            <div>
+                <footer class="footer__container">
+                    <div class="footer__info">
+                        <ul class="footer__info--list">
+                            <li class="footer__info--item">                               
+                                    <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="icon" role="presentation"><title></title><g fill-rule="evenodd"><path d="M18.548,18.554 L18.548,11.058 L6.451,11.058 L6.451,18.554 C6.451,19.098 6.892,19.54 7.432,19.54 L17.567,19.54 C18.108,19.54 18.548,19.098 18.548,18.554 Z M9.839,6.869 L9.839,9.599 L15.161,9.599 L15.161,6.869 C15.161,5.54 13.967,4.459 12.5,4.459 C11.032,4.459 9.839,5.54 9.839,6.869 Z M19.274,9.599 C19.674,9.599 20,9.926 20,10.329 L20,18.554 C20,19.903 18.908,21 17.567,21 L7.432,21 C6.091,21 5,19.903 5,18.554 L5,10.329 C5,9.926 5.325,9.599 5.725,9.599 L8.387,9.599 L8.387,6.869 C8.387,4.735 10.232,3 12.5,3 C14.768,3 16.612,4.735 16.612,6.869 L16.612,9.599 L19.274,9.599 Z M12.4997,16.7591 C11.6977,16.7591 11.0477,16.1061 11.0477,15.3001 C11.0477,14.4931 11.6977,13.8401 12.4997,13.8401 C13.3017,13.8401 13.9517,14.4931 13.9517,15.3001 C13.9517,16.1061 13.3017,16.7591 12.4997,16.7591 Z"></path></g></svg>                             
+                            </li>
+                            <li class="footer__info--item">                     
+                                    <p class="footer__info--label"> The information you enter on this page will be TLS protected and sent. Some pages of our company cannot be accessed from some browsers and mobile phone terminals. Please note. <a href="">About TLS</a></p>                            
+                            </li>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-md">
+    <a class="navbar-brand" href="{% url 'home:index' %}">Uniqlo</a>
+  </div>
+</nav>
+
+<h1 class="text-center mt-5 mb-4 display-3">Signup</h1>
+
+{% if error %}
+  <div class="alert alert-warning" role="alert">
+    <span>{{ error }}</span> 
+</div>
+{% endif %}
+<form enctype="multipart/form-data" method="POST" class="d-flex flex-column align-items-center mb-5">
+  {% csrf_token %}
+  <div class="mb-3 w-50">
+    <label for="id_username" class="form-label">Username</label>
+    <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_email" class="form-label">Email</label>
+    <input type="email" name="email" autofocus="" required="" id="id_email" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_password" class="form-label">Password</label>
+    <input type="password" name="password" required="" id="id_password" class="form-control">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_password1" class="form-label">Password</label>
+    <input type="password" name="password1" required="" id="id_password1" class="form-control">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_first_name" class="form-label">First Name</label>
+    <input  type="text" name="first_name" maxlength="256" required="" id="id_first_name" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_last_name" class="form-label">Last Name</label>
+    <input  type="text" name="last_name" maxlength="256" required="" id="id_last_name" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_birth_date" class="form-label">Birth Day</label>
+    <input type="text" name="birth_date" required="" id="id_birth_date" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_site" class="form-label">Url</label>
+    <input type="url" name="site" maxlength="200" id="id_site" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_avatar" class="form-label">Default file input example</label>
+    <input class="form-control"  type="file" name="avatar" accept="image/*" id="id_avatar">
+  </div>
+  <button type="submit" class="btn btn-outline-dark mb-5">Register</button>
+</form> -->
+
+{% endblock block_body_not_nav %}
+
+
